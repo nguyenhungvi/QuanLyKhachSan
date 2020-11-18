@@ -1,0 +1,33 @@
+.w-dialog{
+    width: 960px;
+}
+
+.content-wp{
+    min-height: 250px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 15px 0px;
+    background: #ececec;
+    padding-top: 0px;
+}
+
+/*Style pagging*/
+ul.pagging{
+    float: right;
+    margin-top: 15px;
+}
+ul.pagging li{
+    float: left;
+    padding: 0px 2px;
+}
+
+ul.pagging li a{
+    display: block;
+    padding: 8px 8px;
+    color: #333;
+    border: 1px solid #dedede;
+}
+ul.pagging li.active a{
+    border: 1px solid #f00;
+    color: #f00;
+}
