@@ -10,17 +10,17 @@ CKEDITOR.editorConfig = function (config) {
 //    config.allowedContent = true;
 //    config.filebrowserBrowseUrl = 'ckfinder/ckfinder.html';
 //    config.filebrowserUploadUrl = 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
-    config.filebrowserBrowseUrl = 'http://localhost/Backend/DoAn/section_Do_An/quanly_KS_Admin/libraries/ckfinder/ckfinder.html';
+    config.filebrowserBrowseUrl = 'http://localhost/Backend/DoAn/QuanLyKhachSan/section_Do_An/quanly_KS_Admin/libraries/ckfinder/ckfinder.html';
 
-    config.filebrowserImageBrowseUrl = 'http://localhost/Backend/DoAn/section_Do_An/quanly_KS_Admin/libraries/ckfinder/ckfinder.html?type=Images';
+    config.filebrowserImageBrowseUrl = 'http://localhost/Backend/DoAn/QuanLyKhachSan/section_Do_An/quanly_KS_Admin/libraries/ckfinder/ckfinder.html?type=Images';
 
-    config.filebrowserFlashBrowseUrl = 'http://localhost/Backend/DoAn/section_Do_An/quanly_KS_Admin/libraries/ckfinder/ckfinder.html?type=Flash';
+    config.filebrowserFlashBrowseUrl = 'http://localhost/Backend/DoAn/QuanLyKhachSan/section_Do_An/quanly_KS_Admin/libraries/ckfinder/ckfinder.html?type=Flash';
 
-    config.filebrowserUploadUrl = 'http://localhost/Backend/DoAn/section_Do_An/quanly_KS_Admin/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
+    config.filebrowserUploadUrl = 'http://localhost/Backend/DoAn/QuanLyKhachSan/section_Do_An/quanly_KS_Admin/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
 
-    config.filebrowserImageUploadUrl = 'http://localhost/Backend/DoAn/section_Do_An/quanly_KS_Admin/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
+    config.filebrowserImageUploadUrl = 'http://localhost/Backend/DoAn/QuanLyKhachSan/section_Do_An/quanly_KS_Admin/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
 
-    config.filebrowserFlashUploadUrl = 'http://localhost/Backend/DoAn/section_Do_An/quanly_KS_Admin/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+    config.filebrowserFlashUploadUrl = 'http://localhost/Backend/DoAn/QuanLyKhachSan/section_Do_An/quanly_KS_Admin/libraries/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
 
 };
 

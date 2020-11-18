@@ -64,6 +64,7 @@ get_sidebar();
                             <div class="form-group">
                                 <label>Hình ảnh phòng</label>
                                 <input type="file" name="roomImage" value="">
+                                <?php echo form_error('image'); ?>
                             </div>
                             <div class="form-group" style="margin: 0px; width: 930px;">
                                 <label class="control-label">Mô tả phòng</label><br>

@@ -3,6 +3,7 @@
 function construct() {
 //    echo "DÙng chung, load đầu tiên";
     load_model('index');
+    load('lib', 'validation');
 }
 
 function indexAction() {
@@ -28,17 +29,17 @@ function listRoomAction() {
     $page = isset($_GET['page']) ? (int) ($_GET['page']) : 1;
     //Chỉ số bắt đầu chạy
     $start = ($page - 1) * $num_per_page;
-    $list_rooms=get_list_room($start,$num_per_page,"room.typeCode=roomtype.id");
+    $list_rooms = get_list_room($start, $num_per_page, "room.typeCode=roomtype.id");
     //Truyền tất cả dữ liệu muốn truyền đưa qua cho view
-    $data['list_rooms']=$list_rooms;
-    $data['start']=$start;
-    $get_pagging=get_pagging($num_page,$page,"?mod=room&action=listRoom");
-    $data['get_pagging']=$get_pagging;
+    $data['list_rooms'] = $list_rooms;
+    $data['start'] = $start;
+    $get_pagging = get_pagging($num_page, $page, "?mod=room&action=listRoom");
+    $data['get_pagging'] = $get_pagging;
     //KẾT THÚC TEST
     if (isset($_POST['save-update-room-id'])) {
         updateRoomAction();
     }
-    if(isset($_POST['btn-yes'])){
+    if (isset($_POST['btn-yes'])) {
         del_id_roomAction();
     }
     load_view('index', $data);
@@ -79,16 +80,25 @@ function addAction() {
     if (isset($_POST['btn-save'])) {
         global $error;
         if (isset($_FILES['roomImage'])) {
-            move_uploaded_file($_FILES['roomImage']['tmp_name'], 'D:/Unitop/xampp/htdocs/Backend/DoAn/section_Do_An(1)/quanly_KS_Admin/public/images/room/' . $_FILES['roomImage']['name']);
-            $data = array(
-                'roomNumber' => $_POST['roomNumber'],
-                'image' => $_FILES['roomImage']['name'],
-                'price' => $_POST['roomPrice'],
-                'typeCode' => $_POST['roomType'],
-                'description' => $_POST['roomDescription'],
-                'state' => $_POST['roomState']
-            );
-            insert_info_room($data);
+            $imagetype = $_FILES['roomImage']['type'];
+            if ($imagetype != "image/png" && $imagetype != "image/jpg" && $imagetype != "image/jpeg" && $imagetype != "image/git") {
+                $error['image'] = "Không đúng định dạng";
+            } else {
+                if ($_FILES['roomImage']['size'] > 1000000) {
+                    $error['image'] = "Kích thước ảnh quá lớn";
+                } else {
+                    move_uploaded_file($_FILES['roomImage']['tmp_name'], 'D:/Unitop/xampp/htdocs/Backend/DoAn/QuanLyKhachSan/section_Do_An/quanly_KS_Admin/public/images/room/' . $_FILES['roomImage']['name']);
+                    $data = array(
+                        'roomNumber' => $_POST['roomNumber'],
+                        'image' => $_FILES['roomImage']['name'],
+                        'price' => $_POST['roomPrice'],
+                        'typeCode' => $_POST['roomType'],
+                        'description' => $_POST['roomDescription'],
+                        'state' => $_POST['roomState']
+                    );
+                    insert_info_room($data);
+                }
+            }
         } else {
             $data = array(
                 'roomNumber' => $_POST['roomNumber'],
@@ -100,14 +110,14 @@ function addAction() {
             insert_info_room($data);
         }
     }
-    $list_room_type=get_list_room_type();
-    $data['list_room_type']=$list_room_type;
-    load_view('add',$data);
+    $list_room_type = get_list_room_type();
+    $data['list_room_type'] = $list_room_type;
+    load_view('add', $data);
 }
 
-function del_id_roomAction(){
-    if(isset($_POST['btn-yes'])){
-        $id=$_POST['roomId'];
+function del_id_roomAction() {
+    if (isset($_POST['btn-yes'])) {
+        $id = $_POST['roomId'];
         del_room_id($id);
         redirect("?mod=room&action=listRoom");
     }
