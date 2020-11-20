@@ -89,3 +89,30 @@ $(document).ready(function () {
 
 
 });
+
+$(document).ready(function () {
+
+    $("button[name='roomTypeDelete']").click(function () {
+        var id = $(this).attr('del-room-type-id');
+        var data = {id: id};
+        console.log(id);
+        $.ajax({
+            url: '?mod=room&action=updateRoomType', //Trang xử lý, mặc định trang hiện tại xử lý ngầm lên server
+            method: 'POST', //POST OR GET, mặc định GET
+            data: data, //Dữ liệu truyền lên server, biến được khai báo bên trên
+//            dataType: 'text', //html,text, script
+            dataType: 'json', //dataType kiểu json
+            success: function (data) {
+                //Xử lý dữ liệu trả về
+                $("input[name='room_type_Id']").val(data.id);
+                $("#roomName_del").html("<strong>" + data.name + "</strong>");
+                console.log(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+    });
+
+});

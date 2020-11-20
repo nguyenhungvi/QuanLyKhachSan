@@ -20,8 +20,8 @@ get_sidebar();
             <div class="col-sm-12">
                 <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
                 <div class="btn-group">
-                    <div class="buttonexport" id="buttonlist"> 
-                        <button type="button" name="roomTypeAdd" class="btn btn-add btn-sm" data-toggle="modal" data-target="#customer3" room-id="<?php echo $room['id']; ?>"><i class="fa fa-plus"></i> Thêm loại phòng</button>
+                    <div class="buttonexport" id="buttonlist">
+                        <button type="button" name="roomTypeAdd" class="btn btn-add btn-sm" data-toggle="modal" data-target="#customer3" room-type-id="<?php echo $room_type['id']; ?>"><i class="fa fa-plus"></i> Thêm loại phòng</button>
                     </div>
                     <button class="btn btn-exp btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Xuất dữ liệu</button>
                     <ul class="dropdown-menu exp-drop" role="menu">
@@ -44,7 +44,7 @@ get_sidebar();
                         <tbody>
                             <?php
                             if (!empty($list_RoomType)) {
-                                $t=0;
+                                $t = 0;
                                 //show_array($list_RoomType);
                                 foreach ($list_RoomType as $room_type) {
                                     $t++;
@@ -120,13 +120,12 @@ get_sidebar();
                                     <fieldset>
                                         <!-- Text input-->
                                         <div class="col-md-6 form-group">
-                                            <input type="hidden" name="roomId" value=""/>
                                             <label class="control-label">Loại phòng:</label>
-                                            <input type="text" name="roomNumber" placeholder="roomNumber" value="" class="form-control">
+                                            <input type="text" name="room_type_name" placeholder="Tên loại phòng" value="" class="form-control">
                                         </div>
                                         <div class="col-md-12 form-group user-form-group">
                                             <div class="pull-right">
-                                                <input type="submit" name="save-update-room-id" class="btn btn-add btn-sm" value="Save"/>
+                                                <input type="submit" name="save-add-room-id" class="btn btn-add btn-sm" value="Save"/>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -158,11 +157,11 @@ get_sidebar();
                                 <form class="form-horizontal" method="POST">
                                     <fieldset>
                                         <div class="col-md-12 form-group user-form-group">
-                                            <label class="control-label">Bạn có chắc chắn muốn xóa loại phòng: <span id="roomNumber_del"></span></label>
+                                            <label class="control-label">Bạn có chắc chắn muốn xóa loại phòng: <span id="roomName_del"></span></label>
                                             <div class="pull-right">
-                                                <input type="hidden" name="roomId" value=""/>
+                                                <input type="hidden" name="room_type_Id" value=""/>
                                                 <input type="button" class="btn btn-danger btn-sm"  data-dismiss="modal" value="NO"/>
-                                                <input type="submit" name="btn-yes" class="btn btn-add btn-sm" value="YES"/>
+                                                <input type="submit" name="btn-yes-room-type" class="btn btn-add btn-sm" value="YES"/>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -177,12 +176,12 @@ get_sidebar();
         </div>
         <!-- /.modal -->
         <!--Thiết kế phân trang-->
-        
+
     </section>
     <?php
-            //echo $get_pagging;
-        ?>
-        <div class="clearfix"></div>
+    //echo $get_pagging;
+    ?>
+    <div class="clearfix"></div>
     <!-- /.content -->
 </div>
 <?php

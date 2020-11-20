@@ -124,18 +124,24 @@ function del_id_roomAction() {
 }
 
 //RoomType
-function listRoomTypeAction(){
-    $list_RoomType=get_list_room_type();
-    $data['list_RoomType']=$list_RoomType;
-    if(isset($_POST['save-update-room-type-id'])){
+function listRoomTypeAction() {
+    $list_RoomType = get_list_room_type();
+    $data['list_RoomType'] = $list_RoomType;
+    if (isset($_POST['save-update-room-type-id'])) {
         updateRoomTypeAction();
     }
-    load_view('listRoomType',$data);
+    if (isset($_POST['save-add-room-id'])) {
+        addRoomTypeAction();
+    }
+    if (isset($_POST['btn-yes-room-type'])) {
+        delRoomTypeAction();
+    }
+    load_view('listRoomType', $data);
 }
 
-function updateRoomTypeAction(){
-    if(isset($_POST['save-update-room-type-id'])){
-        $roomid=$_POST['room_type_Id'];
+function updateRoomTypeAction() {
+    if (isset($_POST['save-update-room-type-id'])) {
+        $roomid = $_POST['room_type_Id'];
         $data = array(
             'name' => $_POST['room_type_Name'],
         );
@@ -150,4 +156,19 @@ function updateRoomTypeAction(){
         'name' => $room_type_id['name']
     );
     echo json_encode($result);
+}
+
+function addRoomTypeAction() {
+    $name_room_type = $_POST['room_type_name'];
+    $data = array(
+        'name' => $name_room_type
+    );
+    insert_info_room_type($data);
+    redirect("?mod=room&action=listRoomType");
+}
+
+function delRoomTypeAction() {
+    $id = $_POST['room_type_Id'];
+    del_room_type_id($id);
+    redirect("?mod=room&action=listRoomType");
 }

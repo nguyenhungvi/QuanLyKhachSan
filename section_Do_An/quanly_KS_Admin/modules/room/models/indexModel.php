@@ -44,3 +44,11 @@ function get_room_type_id($id){
 function update_info_room_type_id($data, $id){
     db_update('roomtype', $data,"`id`={$id}");
 }
+
+function insert_info_room_type($data){
+    db_insert('roomtype', $data);
+}
+
+function del_room_type_id($id){
+    db_delete('roomtype', "`id`={$id}");
+}
