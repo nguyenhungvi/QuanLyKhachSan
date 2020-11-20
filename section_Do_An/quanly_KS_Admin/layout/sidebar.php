@@ -22,7 +22,7 @@
                 <ul class="treeview-menu">
                     <li><a href="?mod=room&action=add">Thêm phòng</a></li>
                     <li><a href="?mod=room&action=listRoom">Danh sách phòng</a></li>
-                    <li><a href="group.html">Loại phòng</a></li>
+                    <li><a href="?mod=room&action=listRoomType">Loại phòng</a></li>
                 </ul>
             </li>
         </ul>

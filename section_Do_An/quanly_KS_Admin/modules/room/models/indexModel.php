@@ -36,3 +36,11 @@ function get_num_row($label){
     $result=db_num_rows("SELECT * FROM {$label}");
     return $result;
 }
+
+function get_room_type_id($id){
+    $result= db_fetch_row("SELECT * FROM `roomtype` WHERE `id`={$id}");
+    return $result;
+}
+function update_info_room_type_id($data, $id){
+    db_update('roomtype', $data,"`id`={$id}");
+}

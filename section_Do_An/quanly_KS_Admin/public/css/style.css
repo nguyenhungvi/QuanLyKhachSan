@@ -31,3 +31,8 @@ ul.pagging li.active a{
     border: 1px solid #f00;
     color: #f00;
 }
+
+.content-roomType{
+    width: 500px;
+    margin: 0 auto;
+}

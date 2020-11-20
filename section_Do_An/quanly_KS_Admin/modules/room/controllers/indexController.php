@@ -122,3 +122,32 @@ function del_id_roomAction() {
         redirect("?mod=room&action=listRoom");
     }
 }
+
+//RoomType
+function listRoomTypeAction(){
+    $list_RoomType=get_list_room_type();
+    $data['list_RoomType']=$list_RoomType;
+    if(isset($_POST['save-update-room-type-id'])){
+        updateRoomTypeAction();
+    }
+    load_view('listRoomType',$data);
+}
+
+function updateRoomTypeAction(){
+    if(isset($_POST['save-update-room-type-id'])){
+        $roomid=$_POST['room_type_Id'];
+        $data = array(
+            'name' => $_POST['room_type_Name'],
+        );
+        update_info_room_type_id($data, $roomid);
+        //echo "hihi";
+        redirect("?mod=room&action=listRoomType");
+    }
+    $id = $_POST['id'];
+    $room_type_id = get_room_type_id($id);
+    $result = array(
+        'id' => $room_type_id['id'],
+        'name' => $room_type_id['name']
+    );
+    echo json_encode($result);
+}
