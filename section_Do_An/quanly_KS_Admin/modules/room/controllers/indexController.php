@@ -68,9 +68,7 @@ function updateRoom_ShowAction() {
         'id' => $room_id['id'],
         'roomNuber' => $room_id['roomNumber'],
         'image' => $room_id['image'],
-        'price' => $room_id['price'],
         'typeCode' => $room_id['typeCode'],
-        'description' => $room_id['description'],
         'state' => $room_id['state']
     );
     echo json_encode($result);

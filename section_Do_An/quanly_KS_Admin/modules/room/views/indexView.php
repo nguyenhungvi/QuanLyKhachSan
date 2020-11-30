@@ -40,9 +40,7 @@ get_sidebar();
                                 <th>STT</th>
                                 <th>Số phòng</th>
                                 <th>Hình ảnh phòng</th>
-                                <th>Giá phòng</th>
                                 <th>Loại phòng</th>
-                                <th>Mô tả</th>
                                 <th>Trạng thái</th>
                                 <th>Chỉnh sửa</th>
                             </tr>
@@ -61,9 +59,8 @@ get_sidebar();
                                         <td><?php echo $t; ?></td>
                                         <td><?php echo $room['roomNumber']; ?></td>
                                         <td><img src="public/images/room/<?php echo $room['image']; ?>" class="img-thumbnail" alt="User Image" width="100" height="auto"> </td>
-                                        <td><?php echo currency_format($room['price'], '$'); ?></td>
+                                        <!--<td><?php //echo currency_format($room['price'], '$'); ?></td>-->
                                         <td><?php echo $room['name']; ?></td>
-                                        <td><?php echo $room['description']; ?></td>
                                         <td><span class="label-custom label label-default"><?php
                                                 //echo $room['state'];
                                                 if ($room['state'] == 2) {
@@ -107,10 +104,10 @@ get_sidebar();
                                             <input type="text" name="roomNumber" placeholder="roomNumber" value="" class="form-control">
                                         </div>
                                         <!-- Text input-->
-                                        <div class="col-md-3 form-group">
+<!--                                        <div class="col-md-3 form-group">
                                             <label class="control-label">Giá phòng:</label>
                                             <input type="number" name="roomPrice" placeholder="Giá phòng" value="" class="form-control">
-                                        </div>
+                                        </div>-->
                                         <!--                                        <div class="col-md-3 form-group">
                                                                                     <label class="control-label">Loại phòng:</label>
                                                                                     <input type="text" name="roomType" placeholder="Loại phòng" value="" class="form-control">
@@ -132,14 +129,14 @@ get_sidebar();
                                                 <option value="1">Đã đặt</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-4 form-group">
+                                        <div class="col-md-3 form-group">
                                             <label class="control-label">Image:</label>
                                             <input type="text" name="roomImage" placeholder="Image" value="" class="form-control">
                                         </div>
-                                        <div class="col-md-12 form-group">
+<!--                                        <div class="col-md-12 form-group">
                                             <label class="control-label">Mô tả phòng:</label><br>
                                             <textarea class="ckeditor" id="roomDescription" name="roomDescription" rows="3" style="margin: 0px; width: 930px;height: 350px"></textarea>
-                                        </div>
+                                        </div>-->
                                         <div class="col-md-12 form-group user-form-group">
                                             <div class="pull-right">
                                                 <input type="submit" name="save-update-room-id" class="btn btn-add btn-sm" value="Save"/>

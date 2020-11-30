@@ -16,8 +16,7 @@ $(document).ready(function () {
                 $("input[name='roomId']").val(data.id);
                 $("input[name='roomNumber']").val(data.roomNuber);
                 $("input[name='roomImage']").val(data.image);
-                $("input[name='roomPrice']").val(data.price);
-                CKEDITOR.instances['roomDescription'].setData(data.description);
+//                CKEDITOR.instances['roomDescription'].setData(data.description);
                 roomType = data.typeCode;
                 $("#roomType>option[value='" + roomType + "']").attr('selected', 'selected');
                 $("#roomType>option[value!='" + roomType + "']").removeAttr('selected');
