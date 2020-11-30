@@ -38,6 +38,8 @@ get_sidebar();
                             <tr class="info">
                                 <th>STT</th>
                                 <th>Tên loại Phòng</th>
+                                <th>Giá phòng</th>
+                                <th>Mô tả</th>
                                 <th>Chỉnh sửa</th>
                             </tr>
                         </thead>
@@ -52,6 +54,8 @@ get_sidebar();
                                     <tr>
                                         <td><?php echo $t; ?></td>
                                         <td><?php echo $room_type['name']; ?></td>
+                                        <td><?php echo $room_type['price']; ?></td>
+                                        <td><?php echo $room_type['description']; ?></td>
                                         <td>
                                             <button type="button" name="roomTypeUpdate" class="btn btn-add btn-sm" data-toggle="modal" data-target="#customer1" room-type-id="<?php echo $room_type['id']; ?>"><i class="fa fa-pencil"></i></button>
                                             <button type="button" name="roomTypeDelete" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#customer2" del-room-type-id="<?php echo $room_type['id']; ?>"><i class="fa fa-trash-o"></i> </button>
@@ -80,10 +84,20 @@ get_sidebar();
                                 <form class="form-horizontal" method="POST">
                                     <fieldset>
                                         <!-- Text input-->
-                                        <div class="col-md-6 form-group">
+                                        <div class="col-md-9 form-group">
                                             <input type="hidden" name="room_type_Id" value=""/>
                                             <label class="control-label">Loại phòng:</label>
                                             <input type="text" name="room_type_Name" placeholder="room_type_Name" value="" class="form-control">
+                                        </div>
+                                        <!-- Text input-->
+                                        <div class="col-md-3 form-group">
+                                            <label class="control-label">Giá phòng:</label>
+                                            <input type="text" name="roomPrice" placeholder="Giá phòng" value="" class="form-control">
+                                        </div>
+                                        <!--Mô tả-->
+                                        <div class="col-md-12 form-group">
+                                            <label class="control-label">Mô tả phòng:</label><br>
+                                            <textarea class="ckeditor" id="roomDescription" name="roomDescription" rows="3" style="margin: 0px; width: 930px;height: 350px"></textarea>
                                         </div>
                                         <div class="col-md-12 form-group user-form-group">
                                             <div class="pull-right">

@@ -42,6 +42,9 @@ function listRoomAction() {
     if (isset($_POST['btn-yes'])) {
         del_id_roomAction();
     }
+    // truyền vào data dữ liệu tất cả loại phòng
+    $list_room_type=get_list_room_type();
+    $data['list_room_type']=$list_room_type;
     load_view('index', $data);
 }
 
@@ -51,10 +54,8 @@ function updateRoomAction() {
         $data = array(
             'roomNumber' => $_POST['roomNumber'],
             'image' => $_POST['roomImage'],
-            'price' => $_POST['roomPrice'],
             'typeCode' => $_POST['roomType'],
             'state' => $_POST['roomState'],
-            'description' => $_POST['roomDescription']
         );
         update_info_room_id($data, $roomId);
         redirect("?mod=room&action=listRoom");
@@ -89,9 +90,9 @@ function addAction() {
                     $data = array(
                         'roomNumber' => $_POST['roomNumber'],
                         'image' => $_FILES['roomImage']['name'],
-                        'price' => $_POST['roomPrice'],
+//                        'price' => $_POST['roomPrice'],
                         'typeCode' => $_POST['roomType'],
-                        'description' => $_POST['roomDescription'],
+//                        'description' => $_POST['roomDescription'],
                         'state' => $_POST['roomState']
                     );
                     insert_info_room($data);
@@ -100,9 +101,9 @@ function addAction() {
         } else {
             $data = array(
                 'roomNumber' => $_POST['roomNumber'],
-                'price' => $_POST['roomPrice'],
+//                'price' => $_POST['roomPrice'],
                 'typeCode' => $_POST['roomType'],
-                'description' => $_POST['roomDescription'],
+//               'description' => $_POST['roomDescription'],
                 'state' => $_POST['roomState']
             );
             insert_info_room($data);

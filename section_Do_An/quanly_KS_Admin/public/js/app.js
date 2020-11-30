@@ -61,6 +61,7 @@ $(document).ready(function () {
 
 });
 
+//Loại Phòng
 $(document).ready(function () {
     $("button[name='roomTypeUpdate']").click(function () {
         var id = $(this).attr('room-type-id');

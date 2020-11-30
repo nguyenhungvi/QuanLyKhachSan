@@ -6,7 +6,7 @@ function get_list_room($start=0,$num_per_page=6,$where=""){
 //    return $result;
     if(!empty($where))
         $where="WHERE {$where}";
-    $list_rooms = db_fetch_array("SELECT room.id, room.roomNumber,room.image,roomtype.name,room.state FROM `room`,`roomtype` {$where} LIMIT {$start},{$num_per_page}");
+    $list_rooms = db_fetch_array("SELECT room.id, room.roomNumber,room.image,roomtype.name,room.state,roomtype.price FROM `room`,`roomtype` {$where} LIMIT {$start},{$num_per_page}");
     return $list_rooms;
 }
 function get_list_room_type(){

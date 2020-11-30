@@ -40,6 +40,7 @@ get_sidebar();
                                 <th>STT</th>
                                 <th>Số phòng</th>
                                 <th>Hình ảnh phòng</th>
+                                <th>Giá phòng</th>
                                 <th>Loại phòng</th>
                                 <th>Trạng thái</th>
                                 <th>Chỉnh sửa</th>
@@ -48,7 +49,7 @@ get_sidebar();
                         <tbody>
                             <?php
                             if (!empty($list_rooms)) {
-                                $t=$start;
+                                $t = $start;
                                 global $room_id;
                                 foreach ($list_rooms as $room) {
                                     $t++;
@@ -59,7 +60,7 @@ get_sidebar();
                                         <td><?php echo $t; ?></td>
                                         <td><?php echo $room['roomNumber']; ?></td>
                                         <td><img src="public/images/room/<?php echo $room['image']; ?>" class="img-thumbnail" alt="User Image" width="100" height="auto"> </td>
-                                        <!--<td><?php //echo currency_format($room['price'], '$'); ?></td>-->
+                                        <td><?php echo currency_format($room['price'], '$');    ?></td>
                                         <td><?php echo $room['name']; ?></td>
                                         <td><span class="label-custom label label-default"><?php
                                                 //echo $room['state'];
@@ -104,10 +105,10 @@ get_sidebar();
                                             <input type="text" name="roomNumber" placeholder="roomNumber" value="" class="form-control">
                                         </div>
                                         <!-- Text input-->
-<!--                                        <div class="col-md-3 form-group">
-                                            <label class="control-label">Giá phòng:</label>
-                                            <input type="number" name="roomPrice" placeholder="Giá phòng" value="" class="form-control">
-                                        </div>-->
+                                        <!--                                        <div class="col-md-3 form-group">
+                                                                                    <label class="control-label">Giá phòng:</label>
+                                                                                    <input type="number" name="roomPrice" placeholder="Giá phòng" value="" class="form-control">
+                                                                                </div>-->
                                         <!--                                        <div class="col-md-3 form-group">
                                                                                     <label class="control-label">Loại phòng:</label>
                                                                                     <input type="text" name="roomType" placeholder="Loại phòng" value="" class="form-control">
@@ -115,16 +116,22 @@ get_sidebar();
                                         <div class="col-md-3 form-group">
                                             <label class="control-label">Loại phòng:</label>
                                             <select class="form-control" name="roomType" id="roomType">
-                                                <option value="1">Single</option>
+                                                <?php
+                                                foreach ($list_room_type as $room_type) {
+                                                    ?>
+                                                    <option value="<?php echo $room_type['id'];?>"><?php echo $room_type['name'];?></option>
+                                                    <?php
+                                                }
+                                                ?>
+<!--                                                <option value="1">Single</option>
                                                 <option value="2">Double</option>
-                                                <option value="3">Queen</option>
+                                                <option value="3">Queen</option>-->
                                             </select>
                                         </div>
 
                                         <div class="col-md-3 form-group">
                                             <label class="control-label">Trạng thái:</label>
                                             <select class="form-control" name="roomState" id="roomState">
-                                                <option value="">---</option>
                                                 <option value="2">Còn trống</option>
                                                 <option value="1">Đã đặt</option>
                                             </select>
@@ -133,10 +140,10 @@ get_sidebar();
                                             <label class="control-label">Image:</label>
                                             <input type="text" name="roomImage" placeholder="Image" value="" class="form-control">
                                         </div>
-<!--                                        <div class="col-md-12 form-group">
-                                            <label class="control-label">Mô tả phòng:</label><br>
-                                            <textarea class="ckeditor" id="roomDescription" name="roomDescription" rows="3" style="margin: 0px; width: 930px;height: 350px"></textarea>
-                                        </div>-->
+                                        <!--                                        <div class="col-md-12 form-group">
+                                                                                    <label class="control-label">Mô tả phòng:</label><br>
+                                                                                    <textarea class="ckeditor" id="roomDescription" name="roomDescription" rows="3" style="margin: 0px; width: 930px;height: 350px"></textarea>
+                                                                                </div>-->
                                         <div class="col-md-12 form-group user-form-group">
                                             <div class="pull-right">
                                                 <input type="submit" name="save-update-room-id" class="btn btn-add btn-sm" value="Save"/>
@@ -190,12 +197,12 @@ get_sidebar();
         </div>
         <!-- /.modal -->
         <!--Thiết kế phân trang-->
-        
+
     </section>
     <?php
-            echo $get_pagging;
-        ?>
-        <div class="clearfix"></div>
+    echo $get_pagging;
+    ?>
+    <div class="clearfix"></div>
     <!-- /.content -->
 </div>
 <?php

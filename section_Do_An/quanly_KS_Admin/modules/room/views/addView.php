@@ -32,10 +32,10 @@ get_sidebar();
                                 <label>Số phòng</label>
                                 <input type="text" name="roomNumber" class="form-control" placeholder="Số phòng" >
                             </div>
-                            <div class="form-group">
+<!--                            <div class="form-group">
                                 <label>Giá phòng</label>
                                 <input type="text" name="roomPrice" class="form-control" placeholder="Giá phòng" >
-                            </div>
+                            </div>-->
                             <div class="form-group">
                                 <label>Kiểu phòng</label>
                                 <!--<input type="text" name="roomType" class="form-control" placeholder="Kiểu phòng" >-->
@@ -56,7 +56,6 @@ get_sidebar();
                                 <label>Trạng thái</label>
                                 <!--<input type="text" name="roomState" class="form-control" placeholder="Trạng thái" >-->
                                 <select class="form-control" name="roomState" id="roomState">
-                                    <option value="">---</option>
                                     <option value="2">Còn trống</option>
                                     <option value="1">Đã đặt</option>
                                 </select>
@@ -66,10 +65,10 @@ get_sidebar();
                                 <input type="file" name="roomImage" value="">
                                 <?php echo form_error('image'); ?>
                             </div>
-                            <div class="form-group" style="margin: 0px; width: 930px;">
+<!--                            <div class="form-group" style="margin: 0px; width: 930px;">
                                 <label class="control-label">Mô tả phòng</label><br>
                                 <textarea class="ckeditor" id="roomDescription" name="roomDescription" rows="3" ></textarea>
-                            </div>
+                            </div>-->
                             <div class="reset-button">
                                 <input type="submit" name="btn-reset" class="btn btn-danger"  value="Reset"/>
                                 <input type="submit" name="btn-save" class="btn btn-success" value="Save"/>
