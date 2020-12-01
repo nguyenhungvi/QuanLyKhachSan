@@ -124,6 +124,7 @@ function del_id_roomAction() {
 
 //RoomType
 function listRoomTypeAction() {
+    load('helper', 'format');
     $list_RoomType = get_list_room_type();
     $data['list_RoomType'] = $list_RoomType;
     if (isset($_POST['save-update-room-type-id'])) {
@@ -143,6 +144,8 @@ function updateRoomTypeAction() {
         $roomid = $_POST['room_type_Id'];
         $data = array(
             'name' => $_POST['room_type_Name'],
+            'price'=> $_POST['room_type_Price'],
+            'description'=> $_POST['room_type_Description']
         );
         update_info_room_type_id($data, $roomid);
         //echo "hihi";
@@ -152,7 +155,9 @@ function updateRoomTypeAction() {
     $room_type_id = get_room_type_id($id);
     $result = array(
         'id' => $room_type_id['id'],
-        'name' => $room_type_id['name']
+        'name' => $room_type_id['name'],
+        'price'=>$room_type_id['price'],
+        'description'=> $room_type_id['description']
     );
     echo json_encode($result);
 }

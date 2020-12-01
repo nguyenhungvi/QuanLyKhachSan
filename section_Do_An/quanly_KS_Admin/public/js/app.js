@@ -66,7 +66,7 @@ $(document).ready(function () {
     $("button[name='roomTypeUpdate']").click(function () {
         var id = $(this).attr('room-type-id');
         var data = {id: id};
-        console.log(id);
+        //console.log(id);
         var test;
         $.ajax({
             url: '?mod=room&action=updateRoomType', //Trang xử lý, mặc định trang hiện tại xử lý ngầm lên server
@@ -78,7 +78,9 @@ $(document).ready(function () {
                 //Xử lý dữ liệu trả về
                 $("input[name='room_type_Id']").val(data.id);
                 $("input[name='room_type_Name']").val(data.name);
-                console.log(data.id);
+                $("input[name='room_type_Price']").val(data.price);
+                CKEDITOR.instances['room_type_Description'].setData(data.description);
+                console.log(data.price);
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(xhr.status);

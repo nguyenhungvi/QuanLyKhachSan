@@ -54,7 +54,7 @@ get_sidebar();
                                     <tr>
                                         <td><?php echo $t; ?></td>
                                         <td><?php echo $room_type['name']; ?></td>
-                                        <td><?php echo $room_type['price']; ?></td>
+                                        <td><?php echo currency_format($room_type['price'],'$'); ?></td>
                                         <td><?php echo $room_type['description']; ?></td>
                                         <td>
                                             <button type="button" name="roomTypeUpdate" class="btn btn-add btn-sm" data-toggle="modal" data-target="#customer1" room-type-id="<?php echo $room_type['id']; ?>"><i class="fa fa-pencil"></i></button>
@@ -92,12 +92,12 @@ get_sidebar();
                                         <!-- Text input-->
                                         <div class="col-md-3 form-group">
                                             <label class="control-label">Giá phòng:</label>
-                                            <input type="text" name="roomPrice" placeholder="Giá phòng" value="" class="form-control">
+                                            <input type="text" name="room_type_Price" placeholder="Giá phòng" value="" class="form-control">
                                         </div>
                                         <!--Mô tả-->
                                         <div class="col-md-12 form-group">
                                             <label class="control-label">Mô tả phòng:</label><br>
-                                            <textarea class="ckeditor" id="roomDescription" name="roomDescription" rows="3" style="margin: 0px; width: 930px;height: 350px"></textarea>
+                                            <textarea class="ckeditor" id="room_type_Description" name="room_type_Description" rows="3" style="margin: 0px; width: 930px;height: 350px"></textarea>
                                         </div>
                                         <div class="col-md-12 form-group user-form-group">
                                             <div class="pull-right">
